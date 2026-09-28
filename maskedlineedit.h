@@ -1,16 +1,28 @@
-#pragma once
+// Этот файл описывает внешний интерфейс нашего поля ввода.
+// Реализация методов находится в maskedlineedit.cpp.
+#pragma once // Не позволяет включить этот заголовок дважды в один файл.
 
-#include <QLineEdit>
+#include <QLineEdit> // Готовое однострочное поле ввода из Qt Widgets.
 
-// 9 = ASCII digit, a = Latin letter, - = literal minus.
+// Создаём свой класс на основе QLineEdit: всё поведение обычного поля
+// наследуется, а мы добавляем правило ввода по заданной маске.
+// В маске: 9 — цифра, a — латинская буква, - — постоянный знак минуса.
 class MaskedLineEdit final : public QLineEdit {
-public:
+    // final означает, что от MaskedLineEdit нельзя создать ещё одного наследника.
+public: // Перечисленные ниже члены доступны коду, который использует поле.
+    // explicit запрещает неявно превращать QString в MaskedLineEdit.
+    // const QString & передаёт строку без копирования и запрещает её менять.
+    // parent — родительский виджет Qt; nullptr означает «родитель пока не задан».
     explicit MaskedLineEdit(const QString &mask, QWidget *parent = nullptr);
 
+    // const после скобок означает, что метод не меняет сам объект.
+    // Возвращаем исходную маску, с которой поле было создано.
     QString mask() const { return mask_; }
+    // true, если все обязательные позиции заполнены допустимыми символами.
     bool isComplete() const;
+    // Готовый текст или пустая строка, если ввод ещё не завершён.
     QString value() const;
 
-private:
-    QString mask_;
+private: // Снаружи эту переменную нельзя изменить напрямую.
+    QString mask_; // Сохраняем исходную маску для проверок и вывода.
 };

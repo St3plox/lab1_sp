@@ -1,2 +1,2 @@
-mask_tests 3 0.013817
+mask_tests 4 0.00960634
 ---

@@ -1,10 +1,10 @@
-Start testing: Sep 28 12:26 +07
+Start testing: Sep 28 12:54 +07
 ----------------------------------------------------------
 1/1 Testing: mask_tests
 1/1 Test: mask_tests
 Command: "/home/st3pegor/Projects/tusur/ssp/lab1/build/mask_tests"
 Directory: /home/st3pegor/Projects/tusur/ssp/lab1/build
-"mask_tests" start time: Sep 28 12:26 +07
+"mask_tests" start time: Sep 28 12:54 +07
 Output:
 ----------------------------------------------------------
 ********* Start testing of MaskedLineEditTest *********
@@ -20,8 +20,8 @@ Totals: 5 passed, 0 failed, 0 skipped, 0 blacklisted, 1ms
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"mask_tests" end time: Sep 28 12:26 +07
+"mask_tests" end time: Sep 28 12:54 +07
 "mask_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Sep 28 12:26 +07
+End testing: Sep 28 12:54 +07
