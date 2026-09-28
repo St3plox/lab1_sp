@@ -1,0 +1,6 @@
+set(__QT_DEPLOY_TARGET_masked_line_edit_FILE /home/st3pegor/Projects/tusur/ssp/lab1/build/libmasked_line_edit.a)
+set(__QT_DEPLOY_TARGET_masked_line_edit_TYPE STATIC_LIBRARY)
+set(__QT_DEPLOY_TARGET_mask_demo_FILE /home/st3pegor/Projects/tusur/ssp/lab1/build/mask_demo)
+set(__QT_DEPLOY_TARGET_mask_demo_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_mask_tests_FILE /home/st3pegor/Projects/tusur/ssp/lab1/build/mask_tests)
+set(__QT_DEPLOY_TARGET_mask_tests_TYPE EXECUTABLE)

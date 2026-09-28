@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmasked_line_edit.a CMakeFiles/masked_line_edit.dir/masked_line_edit_autogen/mocs_compilation.cpp.o CMakeFiles/masked_line_edit.dir/maskedlineedit.cpp.o
+/usr/bin/ranlib libmasked_line_edit.a

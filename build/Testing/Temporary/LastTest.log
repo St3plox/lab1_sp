@@ -1,0 +1,27 @@
+Start testing: Sep 28 12:26 +07
+----------------------------------------------------------
+1/1 Testing: mask_tests
+1/1 Test: mask_tests
+Command: "/home/st3pegor/Projects/tusur/ssp/lab1/build/mask_tests"
+Directory: /home/st3pegor/Projects/tusur/ssp/lab1/build
+"mask_tests" start time: Sep 28 12:26 +07
+Output:
+----------------------------------------------------------
+********* Start testing of MaskedLineEditTest *********
+Config: Using QtTest library 6.11.2, Qt 6.11.2 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 16.2.1 20260810), archcraft unknown
+PASS   : MaskedLineEditTest::initTestCase()
+PASS   : MaskedLineEditTest::digits()
+PASS   : MaskedLineEditTest::lettersAndLiteral()
+PASS   : MaskedLineEditTest::badMask()
+PASS   : MaskedLineEditTest::cleanupTestCase()
+Totals: 5 passed, 0 failed, 0 skipped, 0 blacklisted, 1ms
+********* Finished testing of MaskedLineEditTest *********
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"mask_tests" end time: Sep 28 12:26 +07
+"mask_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 28 12:26 +07
