@@ -1,6 +1,3 @@
-import java.util.Locale;
-
-/** Прессовый задатчик: один импульс от заданного начального состояния. */
 public class PressPressureController extends PressureController {
     private final double initialPressure;
     private final double initialVolume;
@@ -19,9 +16,7 @@ public class PressPressureController extends PressureController {
 
     @Override
     protected String calculateSignals(double pressure) {
-        // В формуле методички 1 atm = 1, поскольку давление измеряется в атмосферах.
         var volume = ((initialPressure + 1.0) / (pressure + 1.0)) * initialVolume;
-        // V = V0 - k * f * dt. Достаточно одного сигнала f = -1, 0 или +1.
         var displacement = initialVolume - volume;
         var signal = Math.signum(displacement);
         var duration = Math.abs(displacement) / coefficient;

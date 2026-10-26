@@ -2,7 +2,6 @@ import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
-        // Один массив базового типа: вызов метода не зависит от реализации драйвера.
         PressureController[] controllers = {
             new ValvePressureController(10.0, 0.0),
             new PressPressureController(1.0, 10.0, 0.5)
@@ -16,7 +15,7 @@ public class Main {
                     pressures[i] = Double.parseDouble(args[i]);
                 }
             }
-            for (double pressure : pressures) {
+            for (var pressure : pressures) {
                 System.out.printf(Locale.ROOT, "Требуемое давление: %.6f атм%n", pressure);
                 for (PressureController controller : controllers) {
                     System.out.println(controller.createSignals(pressure));

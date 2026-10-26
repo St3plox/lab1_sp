@@ -14,7 +14,6 @@ if not rows:
     raise SystemExit("В CSV нет измерений. Сначала запустите ./points.")
 rows.sort(key=lambda row: int(row["elements"]))
 
-# Одна картинка описывает одну серию. Смешанные настройки не подписываем как одну.
 settings = {(r["threads"], r["repeats"], r.get("distance", "50"),
              r.get("input_mode", "generated"), r.get("seed", "12345")) for r in rows}
 if len(settings) != 1:
@@ -23,7 +22,6 @@ threads, repeats, distance, mode, seed = settings.pop()
 n = [int(r["elements"]) for r in rows]
 serial = [float(r["serial_ms"]) for r in rows]
 parallel = [float(r["parallel_ms"]) for r in rows]
-# Вычисляем ускорение из сохранённых времён.
 speedup = [s / p for s, p in zip(serial, parallel)]
 input_description = "ручной ввод" if mode == "manual" else f"генератор, seed={seed}"
 metadata = f"Потоков: {threads}; R={float(distance):g}; медиана {repeats} повторов; {input_description}"
@@ -35,7 +33,6 @@ else:
 if "timestamp" in rows[0]:
     metadata += f"\nЗапуск: {rows[0]['timestamp']}"
 
-# Ищем минимальный ИССЛЕДОВАННЫЙ размер с выигрышем, без экстраполяции.
 first_faster = next((i for i, (s, p) in enumerate(zip(serial, parallel)) if p < s), None)
 if len(rows) == 1:
     conclusion = ("Измерен только один размер матрицы. Определить зависимость времени "
@@ -58,7 +55,6 @@ fig, axes = plt.subplots(1, 2, figsize=(13, 6))
 fig.subplots_adjust(top=0.78, bottom=0.14, left=0.085, right=0.96, wspace=0.3)
 fig.suptitle(metadata, fontsize=11, y=0.98)
 if len(rows) == 1:
-    # Для одного размера используем столбики: линию зависимости строить не из чего.
     bars = axes[0].bar(["Последовательно", f"Параллельно\nпотоков: {threads}"],
                        [serial[0], parallel[0]], color=["#287ab3", "#ef8a21"])
     axes[0].bar_label(bars, fmt="%.6f")
@@ -97,10 +93,8 @@ for axis in axes:
     axis.grid(True, which="both", alpha=0.25)
     axis.set_axisbelow(True)
 
-# Сохраняем картинку рядом с её исходной таблицей.
 fig.savefig(source.with_suffix(".png"), dpi=180)
 fig.savefig(source.with_suffix(".svg"))
-# Сохраняем привычные имена для стандартного файла последнего запуска.
 if source == Path("results/timings.csv"):
     fig.savefig("results/timing.png", dpi=180)
     fig.savefig("results/timing.svg")
